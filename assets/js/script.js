@@ -24,12 +24,11 @@ createApp({
 
   methods: {
     deleteTask(index, done){
-      this.message = "";
       done ? this.tasks.splice(index, 1) : this.errorMessage("Non hai completato la task!")
     },
 
-    errorMessage(errorMessage){
-      this.message = errorMessage;
+    errorMessage(errorMsg){
+      this.message = errorMsg;
       setTimeout(() => {
         this.message = "";
       }, 5000);
