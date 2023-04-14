@@ -17,21 +17,35 @@ createApp({
           done: false
         },
       ],
-      message: ""
+      message: "",
+      textNew: ""
     }
   },
 
   methods: {
     deleteTask(index, done){
       this.message = "";
-      done ? this.tasks.splice(index, 1) : this.errorMessage()
+      done ? this.tasks.splice(index, 1) : this.errorMessage("Non hai completato la task!")
     },
 
-    errorMessage(){
-      this.message = "Non hai completato la task!"
+    errorMessage(errorMessage){
+      this.message = errorMessage;
       setTimeout(() => {
         this.message = "";
       }, 5000);
+    },
+
+    newTask(textNew){
+      const newTask = {
+        text: textNew,
+        done: false
+      }
+      if(textNew.length > 5){
+        this.tasks.unshift(newTask);
+        this.textNew = "";
+      }else{
+        this.errorMessage("Il nome della task deve essere di almeno 5 caratteri!");
+      }
     }
   }
 }).mount("#app")
