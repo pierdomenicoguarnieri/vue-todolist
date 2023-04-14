@@ -1,0 +1,9 @@
+li:hover{
+  transition: all .3s;
+  background-color: white;
+}
+
+li > i:hover{
+  transition: all .3s;
+  color: red;
+}
