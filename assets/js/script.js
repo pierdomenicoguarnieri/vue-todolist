@@ -21,6 +21,9 @@ createApp({
   },
 
   methods: {
-
+    deleteTask(index){
+      console.log("Press", index)
+      this.tasks.splice(index, 1)
+    }
   }
 }).mount("#app")

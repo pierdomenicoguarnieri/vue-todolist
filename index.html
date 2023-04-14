@@ -27,7 +27,7 @@
           <ul class="list-unstyled px-5 py-3">
             <li v-for="(task, index) in tasks" @click="task.done = !task.done" class="py-3 border-bottom rounded-3 d-flex justify-content-between align-items-center">
               <span :class="{'text-decoration-line-through' : task.done}" class="px-4 fs-5">{{task.text}}</span>
-              <i class="fa-regular fa-trash-can px-4 fs-5"></i>
+              <i @click.stop="deleteTask(index)" class="fa-regular fa-trash-can px-4 fs-5"></i>
             </li>
           </ul>
         </div>
