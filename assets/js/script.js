@@ -16,14 +16,22 @@ createApp({
           text: "Fare una focaccia",
           done: false
         },
-      ]
+      ],
+      message: ""
     }
   },
 
   methods: {
-    deleteTask(index){
-      console.log("Press", index)
-      this.tasks.splice(index, 1)
+    deleteTask(index, done){
+      this.message = "";
+      done ? this.tasks.splice(index, 1) : this.errorMessage()
+    },
+
+    errorMessage(){
+      this.message = "Non hai completato la task!"
+      setTimeout(() => {
+        this.message = "";
+      }, 5000);
     }
   }
 }).mount("#app")
